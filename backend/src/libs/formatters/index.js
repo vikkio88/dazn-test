@@ -1,10 +1,7 @@
 const { send } = require('micro');
 
-const response = (res, payload, meta = {}) => {
-    return send(res, 200, {
-        meta,
-        payload
-    });
+const response = (res, payload) => {
+    return send(res, 200, payload);
 }
 
 const unauthorized = (res, message = 'Unauthorized') => {
