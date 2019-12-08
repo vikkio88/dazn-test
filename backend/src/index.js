@@ -14,6 +14,7 @@ module.exports = cors(router(
     get('/me', authguard(users.me)),
     
     get('/catalog/live', catalog.live),
+    get('/catalog/stream/:streamId', authguard(catalog.getStream)),
 
     get('/', misc.fallback),
 
