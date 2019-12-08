@@ -32,22 +32,18 @@ npm run dev
 `GET /ping`
 this endpoint is needed just to check if the API is actually running correctly
 ```
--> % http get localhost:3001/ping 
+-> % http get localhost:3001/ping        
 HTTP/1.1 200 OK
 Access-Control-Allow-Credentials: true
 Access-Control-Allow-Origin: *
 Connection: keep-alive
-Content-Length: 53
+Content-Length: 18
 Content-Type: application/json; charset=utf-8
-Date: Sun, 08 Dec 2019 09:43:50 GMT
+Date: Sun, 08 Dec 2019 12:50:09 GMT
 
 {
-    "meta": {},
-    "payload": {
-        "pong": true
-    }
+    "pong": true
 }
-
 ```
 
 **user**
@@ -60,17 +56,13 @@ HTTP/1.1 200 OK
 Access-Control-Allow-Credentials: true
 Access-Control-Allow-Origin: *
 Connection: keep-alive
-Content-Length: 208
+Content-Length: 173
 Content-Type: application/json; charset=utf-8
-Date: Sun, 08 Dec 2019 09:41:41 GMT
+Date: Sun, 08 Dec 2019 12:50:38 GMT
 
 {
-    "meta": {},
-    "payload": {
-        "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjp7InVzZXJuYW1lIjoidmluY2UifSwiZXhwaXJlcyI6IjE1NzU3OTgxMDEzNjAwIn0.LhTfBn1BIwhCSajupnwaxKtu76d04KPNy8xNmr1KUWA"
-    }
+    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjp7InVzZXJuYW1lIjoidmluY2UifSwiZXhwaXJlcyI6IjE1NzU4MDk0MzgzNjAwIn0.bzgnckxJoMzLTunWrjHQdsDbTzp99kStFNU9tyQnz5M"
 }
-
 ```
 
 `GET /me`
@@ -81,19 +73,15 @@ HTTP/1.1 200 OK
 Access-Control-Allow-Credentials: true
 Access-Control-Allow-Origin: *
 Connection: keep-alive
-Content-Length: 82
+Content-Length: 43
 Content-Type: application/json; charset=utf-8
-Date: Sun, 08 Dec 2019 09:43:14 GMT
+Date: Sun, 08 Dec 2019 12:51:08 GMT
 
 {
-    "meta": {},
-    "payload": {
-        "user": {
-            "username": "vince"
-        }
+    "user": {
+        "username": "vince"
     }
 }
-
 ```
 
 ### Frontend 
