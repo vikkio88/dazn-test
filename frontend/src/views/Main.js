@@ -25,7 +25,7 @@ class Main extends Component {
                                 }
                             />
                             <Route
-                                path="/stream/:videoId"
+                                path="/stream/:streamId"
                                 component={props =>
                                     !isLoggedIn ? <Redirect to="/login" /> : <Stream {...props} />
                                 }

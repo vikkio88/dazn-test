@@ -22,5 +22,8 @@ export const userService = {
 export const catalogService = {
     getLive() {
         return axiosInstance.get('catalog/live');
+    },
+    getStream(streamId) {
+        return axiosInstance.get(`/catalog/stream/${streamId}`);
     }
 }

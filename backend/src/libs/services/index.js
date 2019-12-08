@@ -1,6 +1,6 @@
 const streamProtection = {
     canPlay(user, streamId) {
-        return true;
+        return false;
     }
 };
 

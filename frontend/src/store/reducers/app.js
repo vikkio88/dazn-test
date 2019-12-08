@@ -8,7 +8,6 @@ const initialState = {
 };
 
 export default (state = initialState, action = {}) => {
-    console.log('[REDUCER]: ', action);
     switch (action.type) {
         case LOGGED_IN:
             return {

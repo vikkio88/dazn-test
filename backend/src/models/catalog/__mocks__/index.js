@@ -6,10 +6,10 @@ const items = [
 ];
 
 const streams = {
-    'AXsu8222': 'https://some.com/fileurl.mp4',
-    '7cn8w22AA': 'https://some.com/fileurl.mp4',
-    'Int3RM3rd4': 'https://some.com/fileurl.mp4',
-    '37cx7fcvc': 'https://some.com/fileurl.mp4',
+    'AXsu8222': 'https://vikkio.me/dazn/video/sample.mp4',
+    '7cn8w22AA': 'https://vikkio.me/dazn/video/sample.mp4',
+    'Int3RM3rd4': 'https://vikkio.me/dazn/video/sample.mp4',
+    '37cx7fcvc': 'https://vikkio.me/dazn/video/sample.mp4',
 };
 
 module.exports = {
