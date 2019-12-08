@@ -15,7 +15,7 @@ I decided to build a catalog on the frontend system that is going to use the sam
 ## Repository guide
 I decided to go with a mono-repo approach, both FE and BE will be in the same repository in two different sub folders.
 ### Backend
-I decided to use a small boilerplate I use for some of my projects, written in [micro]().
+I decided to use a small boilerplate I use for some of my projects, written in [micro](https://github.com/zeit/micro).
 after running the install script `npm install`, to run it you can use either the docker-compose file.
 ```
 docker-compose up -d
