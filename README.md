@@ -29,7 +29,9 @@ npm run dev
 
 #### Endpoints
 **ping**
+
 `GET /ping`
+
 this endpoint is needed just to check if the API is actually running correctly
 ```
 -> % http get localhost:3001/ping        
@@ -47,7 +49,9 @@ Date: Sun, 08 Dec 2019 12:50:09 GMT
 ```
 
 **user**
+
 `POST /login`
+
 this endpoint is a fake login facility, it will be used to identify the user who is trying to stream the video using a JWT bearer token.
 params: username, password (those are specified in the env file)
 ```
@@ -66,6 +70,7 @@ Date: Sun, 08 Dec 2019 14:08:11 GMT
 ```
 
 `GET /me`
+
 this endpoint is used to get the user info from JWT token and to check the validity of the same, this will be used on the FE to verify whether the user is still logged in if it is returning after closing the browser.
 ```
 -> % http get localhost:3001/me Authorization:eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjp7ImlkIjoiaVN4ODduejIifSwiZXhwaXJlcyI6IjE1NzU4MTQwOTEzNjAwIn0.2QCyoEJ3iYdkQxI54w6L2GpiWvhULSPBavo_NDR6HsY
@@ -84,8 +89,10 @@ Date: Sun, 08 Dec 2019 14:12:07 GMT
     "username": "vince"
 }
 ```
+**catalog**
 
 `GET /catalog/live`
+
 this endpoint is used to get a list of live events. (for the purpose of this test those are mocked and loaded form a json file)
 ```
 -> % http get localhost:3001/catalog/live      
@@ -109,6 +116,7 @@ Date: Sun, 08 Dec 2019 14:30:37 GMT
 ```
 
 `GET /catalog/stream/:streamId`
+
 this endpoint is used to get the stream url given a stream id, this will perform the check on whether the current logged in user can stream that resource or not. (For the scope of this test this will be a simple file url, which the FE app will mount inside an `<video>` tag).
 If you are exceeding your stream quota:
 ```
