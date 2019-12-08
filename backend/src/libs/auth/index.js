@@ -7,7 +7,6 @@ const { JWT_SECRET, JWT_TTL } = process.env;
 
 const auth = {
     check({ username, password }) {
-        console.log(`stuff: ${username},${password}`);
         return userRepository.login(username, password)
     },
     encode(user) {

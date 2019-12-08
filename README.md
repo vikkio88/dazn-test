@@ -56,31 +56,32 @@ HTTP/1.1 200 OK
 Access-Control-Allow-Credentials: true
 Access-Control-Allow-Origin: *
 Connection: keep-alive
-Content-Length: 173
+Content-Length: 169
 Content-Type: application/json; charset=utf-8
-Date: Sun, 08 Dec 2019 12:50:38 GMT
+Date: Sun, 08 Dec 2019 14:08:11 GMT
 
 {
-    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjp7InVzZXJuYW1lIjoidmluY2UifSwiZXhwaXJlcyI6IjE1NzU4MDk0MzgzNjAwIn0.bzgnckxJoMzLTunWrjHQdsDbTzp99kStFNU9tyQnz5M"
+    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjp7ImlkIjoiaVN4ODduejIifSwiZXhwaXJlcyI6IjE1NzU4MTQwOTEzNjAwIn0.2QCyoEJ3iYdkQxI54w6L2GpiWvhULSPBavo_NDR6HsY"
 }
 ```
 
 `GET /me`
 this endpoint is used to get the user info from JWT token and to check the validity of the same, this will be used on the FE to verify whether the user is still logged in if it is returning after closing the browser.
 ```
--> % http get localhost:3001/me Authorization:eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjp7InVzZXJuYW1lIjoidmluY2UifSwiZXhwaXJlcyI6IjE1NzU3OTgxMDEzNjAwIn0.LhTfBn1BIwhCSajupnwaxKtu76d04KPNy8xNmr1KUWA
+-> % http get localhost:3001/me Authorization:eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjp7ImlkIjoiaVN4ODduejIifSwiZXhwaXJlcyI6IjE1NzU4MTQwOTEzNjAwIn0.2QCyoEJ3iYdkQxI54w6L2GpiWvhULSPBavo_NDR6HsY
 HTTP/1.1 200 OK
 Access-Control-Allow-Credentials: true
 Access-Control-Allow-Origin: *
 Connection: keep-alive
-Content-Length: 43
+Content-Length: 83
 Content-Type: application/json; charset=utf-8
-Date: Sun, 08 Dec 2019 12:51:08 GMT
+Date: Sun, 08 Dec 2019 14:12:07 GMT
 
 {
-    "user": {
-        "username": "vince"
-    }
+    "id": "iSx87nz2",
+    "maxStreams": 3,
+    "plan": "basic",
+    "username": "vince"
 }
 ```
 

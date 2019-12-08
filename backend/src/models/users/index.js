@@ -1,7 +1,17 @@
-const { USERNAME, PASSWORD } = process.env;
+const { USERNAME, PASSWORD, USER_ID } = process.env;
+
+const { users } = require('./__mocks__');
+
 const userRepository = {
     login(username, password) {
-        return (username === USERNAME && password === PASSWORD)
+        if (username === USERNAME && password === PASSWORD) {
+            return USER_ID;
+        }
+
+        return false;
+    },
+    get({ id }) {
+        return users[id] || null;
     }
 };
 
