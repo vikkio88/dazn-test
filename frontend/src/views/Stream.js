@@ -17,7 +17,13 @@ export default () => {
             {(!isLoading && error) && (
                 <StreamUpgrade error={error} />
             )}
-            {(!isLoading && !error) && (<video src={data.fileUrl} controls />)}
+            {(!isLoading && !error) && (
+                <>
+                    <span>{data.sport}</span>
+                    <h3>{data.label}</h3>
+                    <video src={data.fileUrl} controls />
+                </>
+            )}
         </>
     )
 }
