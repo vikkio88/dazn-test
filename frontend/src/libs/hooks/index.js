@@ -20,7 +20,7 @@ export const useFetch = (promise, handleError = null) => {
 
     };
     useEffect(() => { fetchUrl(); }, []);
-    return [data, error, isLoading];
+    return [data, isLoading, error];
 }
 export const useInput = initialValue => {
     const [value, setValue] = useState(initialValue);

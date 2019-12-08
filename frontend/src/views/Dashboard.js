@@ -15,7 +15,7 @@ export default () => {
                 <div className="catalog">
                     {(data && data.length > 0) ? data.map(i => (
                         <Item key={i.streamId} {...i} />
-                    )): <h3>No Live Events</h3>}
+                    )) : <h3>No Live Events</h3>}
                 </div>
             )}
         </>

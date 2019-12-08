@@ -9,7 +9,7 @@ import { StreamUpgrade } from 'components/promo';
 
 export default () => {
     const { streamId } = useParams();
-    const [data, error, isLoading] = useFetch(catalogService.getStream(streamId), true);
+    const [data, isLoading, error] = useFetch(catalogService.getStream(streamId), true);
 
     return (
         <>
