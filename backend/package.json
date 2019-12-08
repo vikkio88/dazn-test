@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "micro-dev -p 3001",
     "start": "micro",
-    "postinstall": "cp .env.example .env"
+    "postinstall": "cp .env.example .env",
+    "test": "mocha __tests__/*/*.js --exit",
+    "test:watch": "mocha __tests__/*/*.js --watch"
   },
   "dependencies": {
     "bcrypt": "^3.0.6",
@@ -18,7 +20,8 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "ava": "^1.4.1",
-    "micro-dev": "latest"
+    "chai": "^4.2.0",
+    "micro-dev": "latest",
+    "mocha": "^6.2.2"
   }
 }
