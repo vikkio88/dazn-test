@@ -11,7 +11,6 @@ class Main extends Component {
     }
     render() {
         const { isLoggedIn } = this.props;
-        console.log(`loggedIn ${isLoggedIn}`);
         return (
             <Router>
                 <div className="App">
