@@ -1,9 +1,9 @@
-const { items, streams } = require('./__mocks__');
+const { streams } = require('./__mocks__');
 const catalogRepository = {
     getLive() {
-        return items;
+        return Object.values(streams);
     },
-    getFileUrl(streamId) {
+    getStreamById(streamId) {
         if (streamId in streams) return streams[streamId];
         return null;
     }

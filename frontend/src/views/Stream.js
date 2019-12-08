@@ -14,8 +14,10 @@ export default () => {
     return (
         <>
             {isLoading && 'Loading...'}
-            {(!isLoading && error) && (<StreamUpgrade error={error} />)}
-            {(!isLoading && !error) && <>{JSON.stringify(data)}</>}
+            {(!isLoading && error) && (
+                <StreamUpgrade error={error} />
+            )}
+            {(!isLoading && !error) && (<video src={data.fileUrl} controls />)}
         </>
     )
 }

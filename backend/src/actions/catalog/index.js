@@ -10,9 +10,9 @@ const getStream = async (req, res) => {
     const user = userRepository.get(req.user);
     const { streamId } = req.params;
     if (streamProtection.canPlay(user, streamId)) {
-        const fileUrl = catalogRepository.getFileUrl(streamId);
-        if (!fileUrl) return notFound(res, `Stream not found '${streamId}'`);
-        return response(res, { fileUrl });
+        const stream = catalogRepository.getStreamById(streamId);
+        if (!stream) return notFound(res, `Stream not found '${streamId}'`);
+        return response(res, stream);
     }
 
     return forbidden(res, `Your current plan (${user.plan}) allows you only to stream ${user.maxStreams} videos concurrently.`);
