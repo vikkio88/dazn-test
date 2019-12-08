@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-function useFetch(promise) {
+export const useFetch = promise => {
     const [data, setData] = useState([]);
     const [isLoading, setLoading] = useState(true);
     async function fetchUrl() {
@@ -18,4 +18,18 @@ function useFetch(promise) {
     useEffect(() => { fetchUrl(); }, []);
     return [data, isLoading];
 }
-export { useFetch };
+export const useInput = initialValue => {
+    const [value, setValue] = useState(initialValue);
+
+    return {
+        value,
+        setValue,
+        reset: () => setValue(""),
+        bind: {
+            value,
+            onChange: event => {
+                setValue(event.target.value);
+            }
+        }
+    };
+};

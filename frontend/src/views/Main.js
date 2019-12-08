@@ -18,7 +18,12 @@ class Main extends Component {
                     <div className="App-body">
                         <Switch>
                             <Route exact path="/" component={Dashboard} />
-                            <Route path="/login" component={Login} />
+                            <Route
+                                path="/login"
+                                component={props =>
+                                    isLoggedIn ? <Redirect to="/" /> : <Login {...props} />
+                                }
+                            />
                             <Route
                                 path="/stream/:videoId"
                                 component={props =>

@@ -17,3 +17,10 @@
   background-color: #4f535a;
 }
 
+span.error {
+  color: red;
+  background-color: white;
+  padding: 5px;
+  font-size: small;
+}
+

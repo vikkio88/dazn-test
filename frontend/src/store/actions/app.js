@@ -4,6 +4,7 @@ import { CACHE_KEYS } from 'const';
 
 export const LOGGED_IN = 'logged_in';
 export const LOGGED_OUT = 'logged_out';
+export const LOGIN_ERROR = 'login_error';
 
 export const checkExistingSession = () => {
     return dispatch => {
@@ -17,13 +18,13 @@ export const checkExistingSession = () => {
 }
 
 
-export const login = (email, password) => {
+export const login = (username, password) => {
     return dispatch => {
-        userService.login({ email, password }).then(({ data }) => {
-            const { user, token } = data.payload;
+        userService.login({ username, password }).then(({ data }) => {
+            const { user, token } = data;
             dispatch(loggedIn(user, token));
         }).catch(error => {
-            console.error(error);
+            dispatch({ type: LOGIN_ERROR })
         });
     }
 }

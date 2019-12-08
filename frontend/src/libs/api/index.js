@@ -10,8 +10,8 @@ export const setSession = token => axiosInstance.defaults.headers.common['Author
 
 
 export const userService = {
-    login({ email, password }) {
-        return axiosInstance.post('login', { email, password });
+    login({ username, password }) {
+        return axiosInstance.post('login', { username, password });
     },
 
     me() {
