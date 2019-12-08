@@ -85,6 +85,29 @@ Date: Sun, 08 Dec 2019 14:12:07 GMT
 }
 ```
 
+`GET /catalog/live`
+this endpoint is used to get a list of live events. (for the purpose of this test those are mocked and loaded form a json file)
+```
+-> % http get localhost:3001/catalog/live      
+HTTP/1.1 200 OK
+Access-Control-Allow-Credentials: true
+Access-Control-Allow-Origin: *
+Connection: keep-alive
+Content-Length: 586
+Content-Type: application/json; charset=utf-8
+Date: Sun, 08 Dec 2019 14:30:37 GMT
+
+[
+    {
+        "img": "https://vikkio.me/dazn/img/baseball.jpg",
+        "label": "NYC vs Denver",
+        "sport": "baseball",
+        "streamId": "AXsu8222"
+    },
+    {
+...
+```
+
 `GET /catalog/stream/:streamId`
 this endpoint is used to get the stream url given a stream id, this will perform the check on whether the current logged in user can stream that resource or not. (For the scope of this test this will be a simple file url, which the FE app will mount inside an `<video>` tag).
 If you are exceeding your stream quota:
