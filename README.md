@@ -85,6 +85,56 @@ Date: Sun, 08 Dec 2019 14:12:07 GMT
 }
 ```
 
+`GET /catalog/stream/:streamId`
+this endpoint is used to get the stream url given a stream id, this will perform the check on whether the current logged in user can stream that resource or not. (For the scope of this test this will be a simple file url, which the FE app will mount inside an `<video>` tag).
+If you are exceeding your stream quota:
+```
+-> % http get localhost:3001/catalog/stream/S0m3IDStR34m Authorization:eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjp7ImlkIjoiaVN4ODduejIifSwiZXhwaXJlcyI6IjE1NzU4MTQwOTEzNjAwIn0.2QCyoEJ3iYdkQxI54w6L2GpiWvhULSPBavo_NDR6HsY
+HTTP/1.1 403 Forbidden
+Access-Control-Allow-Credentials: true
+Access-Control-Allow-Origin: *
+Connection: keep-alive
+Content-Length: 94
+Content-Type: application/json; charset=utf-8
+Date: Sun, 08 Dec 2019 14:19:22 GMT
+
+{
+    "message": "Your current plan (basic) allows you only to stream 3 videos concurrently."
+}
+```
+
+If you are not exceeding your quota but your stream id does not exist:
+```
+-> % http get localhost:3001/catalog/stream/NonExist1ng1d Authorization:eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjp7ImlkIjoiaVN4ODduejIifSwiZXhwaXJlcyI6IjE1NzU4MTQwOTEzNjAwIn0.2QCyoEJ3iYdkQxI54w6L2GpiWvhULSPBavo_NDR6HsY
+HTTP/1.1 404 Not Found
+Access-Control-Allow-Credentials: true
+Access-Control-Allow-Origin: *
+Connection: keep-alive
+Content-Length: 51
+Content-Type: application/json; charset=utf-8
+Date: Sun, 08 Dec 2019 14:27:21 GMT
+
+{
+    "message": "Stream not found 'NonExist1ng1d'"
+}
+
+```
+if you are allow to stream it:
+```
+-> % http get localhost:3001/catalog/stream/37cx7fcvc Authorization:eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjp7ImlkIjoiaVN4ODduejIifSwiZXhwaXJlcyI6IjE1NzU4MTQwOTEzNjAwIn0.2QCyoEJ3iYdkQxI54w6L2GpiWvhULSPBavo_NDR6HsY
+HTTP/1.1 200 OK
+Access-Control-Allow-Credentials: true
+Access-Control-Allow-Origin: *
+Connection: keep-alive
+Content-Length: 47
+Content-Type: application/json; charset=utf-8
+Date: Sun, 08 Dec 2019 14:28:02 GMT
+
+{
+    "fileUrl": "https://some.com/fileurl.mp4"
+}
+```
+
 ### Frontend 
 I decided to go with a simple SPA using Create-React-app for the frontend part.
 

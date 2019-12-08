@@ -23,9 +23,14 @@ const unprocessable = (res, message = 'Wrong Payload', errors = []) => {
     });
 }
 
+const forbidden = (res, message = 'Resource Forbidden') => {
+    return send(res, 403, { message });
+}
+
 module.exports = {
     response,
     unauthorized,
     notFound,
+    forbidden,
     unprocessable
 }

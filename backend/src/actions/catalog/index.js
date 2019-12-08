@@ -1,4 +1,4 @@
-const { response, unprocessable } = require('../../libs/formatters');
+const { response, forbidden, notFound } = require('../../libs/formatters');
 const { streamProtection } = require('../../libs/services');
 const { catalogRepository, userRepository } = require('../../models');
 
@@ -11,10 +11,11 @@ const getStream = async (req, res) => {
     const { streamId } = req.params;
     if (streamProtection.canPlay(user, streamId)) {
         const fileUrl = catalogRepository.getFileUrl(streamId);
+        if (!fileUrl) return notFound(res, `Stream not found '${streamId}'`);
         return response(res, { fileUrl });
     }
 
-    return unprocessable(res, `You are already playing ${user.maxStreams} videos`);
+    return forbidden(res, `Your current plan (${user.plan}) allows you only to stream ${user.maxStreams} videos concurrently.`);
 };
 
 module.exports = {
