@@ -3,7 +3,7 @@ const cors = require('micro-cors')();
 const { send } = require('micro');
 const { router, get, post } = require('microrouter');
 
-const { users, misc } = require('./actions')
+const { users, misc, catalog } = require('./actions')
 const { authguard } = require('./middlewares');
 
 
@@ -13,7 +13,7 @@ module.exports = cors(router(
     post('/login', users.login),
     get('/me', authguard(users.me)),
     
-
+    get('/catalog/live', catalog.live),
 
     get('/', misc.fallback),
 
