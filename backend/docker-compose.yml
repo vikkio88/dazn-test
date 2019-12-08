@@ -1,0 +1,15 @@
+
+version: '3'
+services:
+  dazn-api:
+    image: node:11
+    volumes:
+      - .:/usr/src/service  
+    working_dir: /usr/src/service
+    env_file:
+     - .env
+    environment:
+     - NODE_ENV=docker
+    command: npm start
+    ports:
+      - 3001:3000
