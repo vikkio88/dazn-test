@@ -14,6 +14,7 @@ I decided to build a catalog on the frontend system that is going to use the sam
 
 ## Repository guide
 I decided to go with a mono-repo approach, both FE and BE will be in the same repository in two different sub folders.
+
 ### Backend
 I decided to use a small boilerplate I use for some of my projects, written in [micro](https://github.com/zeit/micro).
 after running the install script `npm install`, to run it you can use either the docker-compose file.
@@ -96,4 +97,13 @@ Date: Sun, 08 Dec 2019 09:43:14 GMT
 ```
 
 ### Frontend 
-tbd
+I decided to go with a simple SPA using Create-React-app for the frontend part.
+
+#### How to
+To run the FE part, after `npm install` you can just
+```
+npm start
+```
+and it will startup your default browser at :3000
+
+You can at any point build the app and upload the assets to any static hosting and run them in your browser from there.
