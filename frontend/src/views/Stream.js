@@ -27,3 +27,6 @@ export default () => {
         </>
     )
 }
+
+//@TODO Need to call the endpoint to release the slot on BE on beforeUnmout
+//@TODO Need to remember to manage the unload event in order to remove the stream from there too

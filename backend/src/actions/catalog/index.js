@@ -18,6 +18,8 @@ const getStream = async (req, res) => {
     return forbidden(res, `Your current plan (${user.plan}) allows you only to stream ${user.maxStreams} videos concurrently.`);
 };
 
+//@TODO need to add the release stream for user endpoint
+
 module.exports = {
     live,
     getStream
