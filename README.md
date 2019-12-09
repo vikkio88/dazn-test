@@ -89,6 +89,26 @@ Date: Sun, 08 Dec 2019 14:12:07 GMT
     "username": "vince"
 }
 ```
+
+`GET /me/slots`
+
+this endpoint will print which slots are you currently watching, it was used for debug mostly, but could be useful to show a warning on the main website for example.
+```
+-> % http get localhost:3001/me/slots Authorization:eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjp7ImlkIjoiaVN4ODduejIifSwiZXhwaXJlcyI6IjE1NzU5MDA1MDMzNjAwIn0.qUSUJkyRo53WlWARgVRtSBKBmOkdiM9SnSRThFJ8VjI
+HTTP/1.1 200 OK
+Access-Control-Allow-Credentials: true
+Access-Control-Allow-Origin: *
+Connection: keep-alive
+Content-Length: 33
+Content-Type: application/json; charset=utf-8
+Date: Mon, 09 Dec 2019 14:43:53 GMT
+
+[
+    "37cx7fcvc",
+    "Int3RM3rd4"
+]
+```
+
 **catalog**
 
 `GET /catalog/live`
@@ -163,6 +183,25 @@ Date: Sun, 08 Dec 2019 14:28:02 GMT
 
 {
     "fileUrl": "https://some.com/fileurl.mp4"
+}
+```
+
+`DELETE /catalog/stream/:streamId/slot`
+
+this endpoint is used to release a streaming slot, and it will be called by the stream View if you leave the page or if you unload the document.
+This second part seems not working properly, but I am sure you get the gist of it.
+```
+-> % http delete localhost:3001/catalog/stream/suc872X22/slot Authorization:eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjp7ImlkIjoiaVN4ODduejIifSwiZXhwaXJlcyI6IjE1NzU5MDA1MDMzNjAwIn0.qUSUJkyRo53WlWARgVRtSBKBmOkdiM9SnSRThFJ8VjI
+HTTP/1.1 200 OK
+Access-Control-Allow-Credentials: true
+Access-Control-Allow-Origin: *
+Connection: keep-alive
+Content-Length: 33
+Content-Type: application/json; charset=utf-8
+Date: Mon, 09 Dec 2019 14:43:53 GMT
+
+{
+    "status": "ok"
 }
 ```
 

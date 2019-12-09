@@ -9,7 +9,6 @@ const live = async (req, res) => {
 const getStream = async (req, res) => {
     const user = userRepository.get(req.user);
     const { streamId } = req.params;
-    console.log(streamProtection.driver.streams);
     if (streamProtection.canPlay(user, streamId)) {
         const stream = catalogRepository.getStreamById(streamId);
         if (!stream) return notFound(res, `Stream not found '${streamId}'`);
@@ -19,9 +18,22 @@ const getStream = async (req, res) => {
     return forbidden(res, `Your current plan (${user.plan}) allows you only to stream ${user.maxStreams} videos concurrently.`);
 };
 
-//@TODO need to add the release stream for user endpoint
+const releaseStreamSlot = async (req, res) => {
+    const user = userRepository.get(req.user);
+    const { streamId } = req.params;
+    streamProtection.releaseStream(user.id, streamId);
+
+    return response(res, { status: 'ok' });
+}
+
+const getSlots = async (req, res) => {
+    const user = userRepository.get(req.user);
+    return response(res, streamProtection.driver.getPlayingStreamsForUser(user.id));
+}
 
 module.exports = {
     live,
-    getStream
+    getStream,
+    releaseStreamSlot,
+    getSlots
 };

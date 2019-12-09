@@ -7,7 +7,7 @@ class StreamProtection {
         this.driver = driver;
     }
 
-    removeStream(userId, streamId) {
+    releaseStream(userId, streamId) {
         return this.driver.removeStream(userId, streamId);
     }
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 import { useFetch } from 'libs/hooks';
@@ -6,10 +6,20 @@ import { catalogService } from 'libs/api';
 
 import { StreamUpgrade } from 'components/promo';
 
+const releaseStream = streamId => () => {
+    // we do not care about the response
+    catalogService.unregisterStream(streamId);
+};
 
 export default () => {
     const { streamId } = useParams();
     const [data, isLoading, error] = useFetch(catalogService.getStream(streamId), true);
+    useEffect(() => {
+        window.addEventListener('beforeunload', releaseStream(streamId));
+
+        // this is the hook equivalent of componentDidUnMount
+        return releaseStream(streamId);
+    }, []);
 
     return (
         <>
