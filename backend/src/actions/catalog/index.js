@@ -9,6 +9,7 @@ const live = async (req, res) => {
 const getStream = async (req, res) => {
     const user = userRepository.get(req.user);
     const { streamId } = req.params;
+    console.log(streamProtection.driver.streams);
     if (streamProtection.canPlay(user, streamId)) {
         const stream = catalogRepository.getStreamById(streamId);
         if (!stream) return notFound(res, `Stream not found '${streamId}'`);

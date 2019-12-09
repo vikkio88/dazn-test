@@ -28,5 +28,14 @@ describe('Stream Protection tests', () => {
         streamProtection.driver.removeStream(user.id, 'somestreamId2');
         assert.isTrue(streamProtection.canPlay(user, streamId));
     });
+    
+    it('does allow duplicate gets', () => {
+        const streamProtection = new StreamProtection(new InMemoryStreamProtectionStorage());
+        const streamId = 'idToduplicate';
+        streamProtection.driver.registerStream(user.id, streamId);
+        assert.isTrue(streamProtection.canPlay(user, streamId));
+        assert.isTrue(streamProtection.canPlay(user, streamId));
+        assert.isTrue(streamProtection.canPlay(user, streamId));
+    });
 
 });

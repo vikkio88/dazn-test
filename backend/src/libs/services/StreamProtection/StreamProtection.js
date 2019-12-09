@@ -18,7 +18,7 @@ class StreamProtection {
     canPlay(user, streamId) {
         const { id: userId, maxStreams } = user;
         const playingStreams = this.driver.getPlayingStreamsForUser(userId);
-        if (streamId in playingStreams) {
+        if (playingStreams.indexOf(streamId) > -1) {
             return true;
         }
 
